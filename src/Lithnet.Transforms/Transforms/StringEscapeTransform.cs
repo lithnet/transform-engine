@@ -14,7 +14,7 @@
     [System.ComponentModel.Description("Escape string")]
     public class StringEscapeTransform : Transform
     {
-        Dictionary<string, string> replacements = new Dictionary<string, string>()
+        private static Dictionary<string, string> replacements = new Dictionary<string, string>()
                 { {@"\", @"\\"},
                   {@"#", @"\#"},
                   {@"+", @"\+"},
@@ -23,7 +23,6 @@
                   {"\"", "\\\""},
                   {@"<", @"\<"},
                   {@">", @"\>"}};
-
 
         /// <summary>
         /// Initializes a new instance of the StringCaseTransform class
@@ -110,7 +109,7 @@
             string ret = s;
 
             //escape the chars that need to be escaped
-            foreach (var pair in this.replacements)
+            foreach (var pair in StringEscapeTransform.replacements)
             {
                 ret = ret.Replace(pair.Key, pair.Value);
             }

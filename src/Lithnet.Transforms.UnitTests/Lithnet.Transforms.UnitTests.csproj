@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Lithnet.Transforms.UnitTests</RootNamespace>
     <AssemblyName>Lithnet.Transforms.UnitTests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -32,6 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,10 +41,15 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Lithnet.Common.ObjectModel, Version=1.0.5777.18973, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Lithnet.Common.ObjectModel.1.0.5777.18973\lib\net40\Lithnet.Common.ObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lithnet.Common.Presentation, Version=1.0.5777.18976, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lithnet.Common.Presentation.1.0.5777.18976\lib\net40\Lithnet.Common.Presentation.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Lithnet.MetadirectoryServices, Version=1.0.6017.24789, Culture=neutral, processorArchitecture=MSIL">
