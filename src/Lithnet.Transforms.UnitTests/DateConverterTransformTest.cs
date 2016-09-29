@@ -213,6 +213,19 @@ namespace Lithnet.Transforms.UnitTests
         }
 
         [TestMethod()]
+        public void ExecuteTestNull()
+        {
+            DateConverterTransform transform = new DateConverterTransform();
+            transform.InputTimeZone = TimeZoneInfo.Local;
+            transform.InputDateType = DateType.Ticks;
+            transform.OutputTimeZone = TimeZoneInfo.Local;
+            transform.OutputDateType = DateType.String;
+            transform.OutputFormat = "D";
+
+            this.ExecuteTestFormatDate(transform, null, null);
+        }
+
+        [TestMethod()]
         public void ExecuteTestFormatDateAsFullDateToUniversal()
         {
             DateConverterTransform transform = new DateConverterTransform();
@@ -394,6 +407,13 @@ namespace Lithnet.Transforms.UnitTests
         private void ExecuteTestFormatDate(DateConverterTransform transform, long sourceValue, string expectedValue)
         {
             string outValue = transform.TransformValue(sourceValue).FirstOrDefault() as string;
+
+            Assert.AreEqual(expectedValue, outValue);
+        }
+
+        private void ExecuteTestFormatDate(DateConverterTransform transform, object sourceValue, object expectedValue)
+        {
+            object outValue = transform.TransformValue(sourceValue).FirstOrDefault();
 
             Assert.AreEqual(expectedValue, outValue);
         }

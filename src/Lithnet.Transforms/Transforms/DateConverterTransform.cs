@@ -185,6 +185,11 @@
         /// <returns>The transformed value</returns>
         protected override object TransformSingleValue(object inputValue)
         {
+            if (inputValue == null)
+            {
+                return null;
+            }
+
             if (this.InputDateType == DateType.FileTime && this.InputTimeZone.BaseUtcOffset.Ticks != 0)
             {
                 throw new InvalidOperationException("The timezone for a FileTime type must be UTC");
