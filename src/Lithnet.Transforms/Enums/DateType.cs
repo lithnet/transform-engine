@@ -30,7 +30,7 @@ namespace Lithnet.Transforms
         [EnumMember(Value = "datetime")]
         DateTime,
 
-        [Description("File time")]
+        [Description("File time (Active Directory date)")]
         [EnumMember(Value = "filetime")]
         FileTime
     }

@@ -335,6 +335,16 @@
         /// <returns>A native DateTime in the UTC time zone</returns>
         private DateTime GetDateTimeFromFileTime(long dateTime)
         {
+            if (dateTime > 2650467743999999999L)
+            {
+                dateTime = 2650467743999999999L;
+            }
+
+            if (dateTime <= 0L)
+            {
+                dateTime = 2650467743999999999L;
+            }
+
             return DateTime.FromFileTimeUtc(dateTime);
         }
 
@@ -420,7 +430,7 @@
         /// Converts a DateTime to the specified output format
         /// </summary>
         /// <param name="date">The DateTime object to convert</param>
-        /// <returns>The value of the original date time in the format specified by the <see cref="OutputType"/>parameter</returns>
+        /// <returns>The value of the original date time in the format specified by the <see cref="OutputDateType"/>parameter</returns>
         private object GetDateTimeOutput(DateTime date)
         {
             switch (this.OutputDateType)
