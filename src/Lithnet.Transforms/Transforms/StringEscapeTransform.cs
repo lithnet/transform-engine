@@ -22,6 +22,7 @@
                   {@"=", @"\="},
                   {"\"", "\\\""},
                   {@"<", @"\<"},
+                  {@",", @"\,"},
                   {@">", @"\>"}};
 
         /// <summary>
@@ -134,11 +135,6 @@
                         ret.Substring(whiteSpaceCount));
                     whiteSpaceCount--;
                 }
-            }
-
-            if (ret.Contains(","))
-            {
-                ret = "\"" + ret + "\"";
             }
 
             return ret;

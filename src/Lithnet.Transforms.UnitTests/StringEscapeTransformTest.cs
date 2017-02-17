@@ -75,7 +75,7 @@ namespace Lithnet.Transforms.UnitTests
 
             UnitTestControl.PerformanceTest(() =>
             {
-                Assert.AreEqual("\"Department of, IT\"", transform.TransformValue("Department of, IT").First());
+                Assert.AreEqual("Department of\\, IT", transform.TransformValue("Department of, IT").First());
             }, 250000);
         }
 
@@ -121,7 +121,7 @@ namespace Lithnet.Transforms.UnitTests
             StringEscapeTransform transform = new StringEscapeTransform();
             transform.EscapeType = StringEscapeType.LdapDN;
 
-            this.ExecuteTest(transform, "Department of, IT", "\"Department of, IT\"");
+            this.ExecuteTest(transform, "Department of, IT", "Department of\\, IT");
         }
 
         [TestMethod()]
