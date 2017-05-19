@@ -39,6 +39,7 @@
                 <ResourceDictionary Source="pack://application:,,,/Lithnet.Transforms.Presentation;component/Views/ConditionalStringFlowTransformView.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Lithnet.Transforms.Presentation;component/Views/PowerShellScriptTransformView.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Lithnet.Transforms.Presentation;component/Views/CSharpScriptTransformView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Lithnet.Transforms.Presentation;component/Views/StringReplaceTransformView.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

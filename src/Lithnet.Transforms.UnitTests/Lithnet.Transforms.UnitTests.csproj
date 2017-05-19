@@ -113,6 +113,7 @@
     <Compile Include="RegexReplaceTransformTest.cs" />
     <Compile Include="ConcatStringTransformTest.cs" />
     <Compile Include="PowerShellScriptTransformTest.cs" />
+    <Compile Include="StringReplaceTransformTest.cs" />
     <Compile Include="StringEscapeTransformTest.cs" />
     <Compile Include="ValueMergeTransformTest.cs" />
     <Compile Include="StringSplitTransformTest.cs" />

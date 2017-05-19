@@ -348,6 +348,15 @@ namespace Lithnet.Transforms.Presentation {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This transform allows for the replacement of character sets within a string.
+        /// </summary>
+        internal static string StringReplaceTransformDescription {
+            get {
+                return ResourceManager.GetString("StringReplaceTransformDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This transforms splits a single-valued string using a regular expression into a multivalued string.
         /// </summary>
         internal static string StringSplitTransformDescription {

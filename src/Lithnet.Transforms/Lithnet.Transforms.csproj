@@ -109,6 +109,7 @@
     <Compile Include="Transforms\NumberCalcuation.cs" />
     <Compile Include="Transforms\CSharpScriptTransform.cs" />
     <Compile Include="Transforms\PowerShellScriptTransform.cs" />
+    <Compile Include="Transforms\StringReplaceTransform.cs" />
     <Compile Include="Transforms\StringEscapeTransform.cs" />
     <Compile Include="Transforms\ValueMergeTransform.cs" />
     <Compile Include="Transforms\StringSplitTransform.cs" />

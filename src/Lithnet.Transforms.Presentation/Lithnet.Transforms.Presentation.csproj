@@ -97,6 +97,7 @@
     <Compile Include="ViewModels\ConditionalStringFlowTransformViewModel.cs" />
     <Compile Include="ViewModels\CSharpScriptTransformViewModel.cs" />
     <Compile Include="ViewModels\PowerShellScriptTransformViewModel.cs" />
+    <Compile Include="ViewModels\StringReplaceTransformViewMode.cs" />
     <Compile Include="ViewModels\StringEscapeTransformViewModel.cs" />
     <Compile Include="ViewModels\StringSplitTransformViewModel.cs" />
     <Compile Include="ViewModels\MVBooleanToBitmaskTransformViewModel.cs" />
@@ -186,6 +187,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ADGroupTypeToStringTransformView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StringReplaceTransformView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
