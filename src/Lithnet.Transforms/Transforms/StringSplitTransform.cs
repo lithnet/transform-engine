@@ -14,6 +14,8 @@
     [System.ComponentModel.Description("String split transform")]
     public class StringSplitTransform : Transform
     {
+        private string splitRegex;
+
         private Regex regex;
 
         private Regex Regex
@@ -61,7 +63,18 @@
         /// Gets or sets the value to use when comparing the source value with the selector operator
         /// </summary>
         [DataMember(Name = "split-regex")]
-        public string SplitRegex { get; set; }
+        public string SplitRegex
+        {
+            get
+            {
+                return this.splitRegex;
+            }
+            set
+            {
+                this.splitRegex = value;
+                this.regex = null;
+            }
+        }
 
         /// <summary>
         /// Executes the transformation against the specified value
