@@ -8,9 +8,6 @@
     <DataTemplate  DataType="{x:Type vm:ConditionalStringFlowTransformViewModel}">
         <StackPanel>
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150" />
                     <ColumnDefinition />

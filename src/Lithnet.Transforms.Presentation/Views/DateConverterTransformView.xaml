@@ -16,10 +16,6 @@
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150"/>
@@ -60,9 +56,6 @@
                 <Grid Grid.Row="3"
                       Grid.Column="1"
                       Margin="0,20,0,20">
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
@@ -81,7 +74,7 @@
                     <ComboBox ItemsSource="{Binding Source={core:EnumExtension {x:Type t:TimeSpanType}}}"
                               SelectedValue="{Binding CalculationTimeSpanType,ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
                               SelectedValuePath="Value"
-                              Grid.Column="3"
+                              Grid.Column="2"
                               IsEnabled="{Binding CalculationIsEnabled}" />
                 </Grid>
 

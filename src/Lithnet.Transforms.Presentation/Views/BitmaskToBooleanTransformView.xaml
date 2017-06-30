@@ -5,13 +5,7 @@
                     xmlns:core="clr-namespace:Lithnet.Common.Presentation;assembly=Lithnet.Common.Presentation">
 
     <DataTemplate  DataType="{x:Type vm:BitmaskToBooleanTransformViewModel}">
-        <StackPanel>
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150" />
                     <ColumnDefinition />
@@ -26,7 +20,6 @@
                          ToolTip="{Binding ToolTips.Flag}" />
 
             </Grid>
-        </StackPanel>
     </DataTemplate>
 
 </ResourceDictionary>

@@ -5,54 +5,55 @@
     <DataTemplate DataType="{x:Type vm:TransformViewModel}">
         <TabControl Background="White" BorderBrush="Black" BorderThickness="1">
             <TabItem Header="Configuration">
-                <DockPanel LastChildFill="False"
-                           Margin="5,20,5,5">
-                    <Grid DockPanel.Dock="Top">
+                <Grid Margin="5,20,5,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" >
                         <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
+                            <RowDefinition Height="Auto"  />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <Label Content="Transform type"
+                        <StackPanel Grid.Row="0">
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Label Content="Transform type"
                                    Grid.Row="0"
                                    Grid.Column="0" />
-                            <TextBox Text="{Binding Type, Mode=OneWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
+                                <TextBox Text="{Binding Type, Mode=OneWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
                                      IsReadOnly="True"
                                      Grid.Row="0"
                                      Grid.Column="1" />
-                            <Label Content="Transform ID"
+                                <Label Content="Transform ID"
                                    Grid.Row="1"
                                    Grid.Column="0" />
-                            <TextBox Text="{Binding Id, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
+                                <TextBox Text="{Binding Id, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
                                      Grid.Row="1"
                                      Grid.Column="1" />
-                        </Grid>
+                            </Grid>
+                        </StackPanel>
 
                         <ContentControl Content="{Binding}"
-                                          Grid.Row="1"
-                                          Margin="0,10,0,0">
+                                        Grid.Row="1"
+                                        Margin="0,10,0,0">
                             <ContentControl.Resources>
-                                <ResourceDictionary>
-                                    <ResourceDictionary.MergedDictionaries>
-                                        <ResourceDictionary Source="pack://application:,,,/Lithnet.Transforms.Presentation;component/ResourceDictionaries/TransformViewDictionary.xaml" />
-                                    </ResourceDictionary.MergedDictionaries>
-                                </ResourceDictionary>
+                                <ResourceDictionary Source="pack://application:,,,/Lithnet.Transforms.Presentation;component/ResourceDictionaries/TransformViewDictionary.xaml" />
                             </ContentControl.Resources>
                         </ContentControl>
                     </Grid>
 
-                    <Grid DataContext="{Binding TransformTest}"
-                          DockPanel.Dock="Bottom">
+                    <Grid Grid.Row="1"
+                        DataContext="{Binding TransformTest}"
+                          >
                         <GroupBox Header="Transform Test">
                             <StackPanel Margin="5">
                                 <Grid>
@@ -126,7 +127,8 @@
                             </StackPanel>
                         </GroupBox>
                     </Grid>
-                </DockPanel>
+
+                </Grid>
             </TabItem>
             <TabItem Header="Transform Details">
                 <Grid>

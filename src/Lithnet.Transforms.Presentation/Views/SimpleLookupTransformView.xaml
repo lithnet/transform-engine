@@ -5,57 +5,55 @@
                     xmlns:core="clr-namespace:Lithnet.Common.Presentation;assembly=Lithnet.Common.Presentation">
 
     <DataTemplate  DataType="{x:Type vm:SimpleLookupTransformViewModel}">
-        <StackPanel>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-                <Label Content="When no match is found"
+            <Label Content="When no match is found"
                        Grid.Row="0"
                        Grid.Column="0" />
-                <ComboBox ItemsSource="{Binding Source={core:EnumExtension {x:Type t:OnMissingMatch}}}"
+            <ComboBox ItemsSource="{Binding Source={core:EnumExtension {x:Type t:OnMissingMatch}}}"
                           SelectedValue="{Binding OnMissingMatch, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
                           SelectedValuePath="Value"
                           Grid.Row="0"
                           Grid.Column="1" />
 
-                <Label Content="Default value"
+            <Label Content="Default value"
                        Grid.Row="1"
                        Grid.Column="0" />
-                <TextBox Text="{Binding DefaultValue, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
+            <TextBox Text="{Binding DefaultValue, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
                          Grid.Row="1"
                          Grid.Column="1"
                          IsEnabled="{Binding DefaultValueIsEnabled}" />
 
-                <Label Content="Return data type"
+            <Label Content="Return data type"
                        Grid.Row="2"
                        Grid.Column="0" />
-                <ComboBox ItemsSource="{Binding Path=AllowedReturnTypes}"
+            <ComboBox ItemsSource="{Binding Path=AllowedReturnTypes}"
                           SelectedValue="{Binding Path=UserDefinedReturnType, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
                           SelectedValuePath="Value"
                           Grid.Row="2"
                           Grid.Column="1" />
 
+            <ScrollViewer VerticalScrollBarVisibility="Auto"   VerticalAlignment="Stretch"
+                              Grid.Row="3" Grid.Column="1" >
+
                 <DataGrid AutoGenerateColumns="False"
-                          HorizontalAlignment="Stretch"
-                          VerticalAlignment="Stretch"
-                          ItemsSource="{Binding LookupItems, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
-                          Grid.Row="3"
-                          Grid.Column="1"
+                          ItemsSource="{Binding Path=LookupItems, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto"
                           CanUserAddRows="true"
                           CanUserDeleteRows="true"
-                          MinHeight="100"
-                          Margin="0,5,0,5">
+                          Margin="0,5,0,5"
+                          >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Input value"
                                             Binding="{Binding Path=CurrentValue,ValidatesOnDataErrors=True,ValidatesOnExceptions=true}"
@@ -96,8 +94,9 @@
                         </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-            </Grid>
-        </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
     </DataTemplate>
 
 </ResourceDictionary>

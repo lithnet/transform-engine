@@ -5,30 +5,29 @@
                     xmlns:core="clr-namespace:Lithnet.Common.Presentation;assembly=Lithnet.Common.Presentation">
 
     <DataTemplate  DataType="{x:Type vm:CSharpScriptTransformViewModel}">
-        <StackPanel>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Label Content="Script"
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Content="Script"
                        Grid.Row="0"
                        Grid.Column="0" />
 
-                <TextBox Text="{Binding Path=ScriptText, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
+            <TextBox Text="{Binding Path=ScriptText, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
                          HorizontalContentAlignment="Left"
                          HorizontalAlignment="Stretch"
                          Grid.Column="1"
                          AcceptsReturn="True"
+                         VerticalScrollBarVisibility="Auto"
+                         HorizontalScrollBarVisibility="Auto"
                          AcceptsTab="True"
                          Grid.Row="0" />
-           
-            </Grid>
-        </StackPanel>
+
+        </Grid>
     </DataTemplate>
 
 </ResourceDictionary>

@@ -5,29 +5,28 @@
                     xmlns:core="clr-namespace:Lithnet.Common.Presentation;assembly=Lithnet.Common.Presentation">
 
     <DataTemplate  DataType="{x:Type vm:StringReplaceTransformViewModel}">
-        <StackPanel>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-                <CheckBox Content="Ignore case"
+            <CheckBox Content="Ignore case"
                           Grid.Row="0"
                           Grid.Column="1"
                           Margin="2"
                           IsChecked="{Binding Path=IgnoreCase, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" />
-                
+            <ScrollViewer   Grid.Row="1"
+                            Grid.Column="1">
                 <DataGrid AutoGenerateColumns="False"
                           HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch"
                           ItemsSource="{Binding LookupItems, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}"
-                          Grid.Row="1"
-                          Grid.Column="1"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
                           CanUserAddRows="true"
                           CanUserDeleteRows="true"
                           MinHeight="100"
@@ -72,8 +71,9 @@
                         </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-            </Grid>
-        </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
     </DataTemplate>
 
 </ResourceDictionary>
