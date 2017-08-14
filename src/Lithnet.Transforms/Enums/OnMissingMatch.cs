@@ -38,6 +38,13 @@ namespace Lithnet.Transforms
         /// </summary>
         [Description("Use a specified value")]
         [EnumMember(Value = "return-specified")]
-        UseDefault
+        UseDefault,
+
+        /// <summary>
+        /// Throws an exception and aborts the operation
+        /// </summary>
+        [Description("Throw an error and abort")]
+        [EnumMember(Value = "error")]
+        Error
     }
 }

@@ -108,6 +108,9 @@
                     case OnMissingMatch.UseDefault:
                         return this.DefaultValue;
 
+                    case OnMissingMatch.Error:
+                        throw new NotFoundException($"The transform {this.ID} could not find a match for the value {inputValue}");
+
                     default:
                         throw new UnknownOrUnsupportedDataTypeException();
                 }
