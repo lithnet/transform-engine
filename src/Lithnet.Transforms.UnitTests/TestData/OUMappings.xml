@@ -3,4 +3,7 @@
   <OUMapping sapOUNumber="1234" MDSDisplayName="MyName"/>
   <OUMapping sapOUNumber="AAEBIQ==" MDSDisplayName="AAEBIg=="/>
   <OUMapping sapOUNumber="123456789" MDSDisplayName="5"/>
+  <OUMapping sapOUNumber="12345'6789" MDSDisplayName="SingleQuote"/>
+  <OUMapping sapOUNumber="123456&apos;789" MDSDisplayName="Apos"/>
+  <OUMapping sapOUNumber="123456&quot;789" MDSDisplayName="DoubleQuote"/>
 </OUMappings>

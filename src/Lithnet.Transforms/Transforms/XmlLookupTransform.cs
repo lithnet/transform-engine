@@ -163,7 +163,7 @@
         private object LookupReplacement(string inputValue)
         {
             
-            string sourcePath = this.XPathQuery.Replace("{attributeValue}", System.Security.SecurityElement.Escape(inputValue));
+            string sourcePath = this.XPathQuery.Replace("{attributeValue}", inputValue);
 
             object returnValue = this.Navigator.Evaluate(sourcePath);
 

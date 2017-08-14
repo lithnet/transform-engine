@@ -85,6 +85,39 @@ namespace Lithnet.Transforms.UnitTests
         }
 
         [TestMethod()]
+        public void XmlLookupTransformStringElementWithAposTest()
+        {
+            XmlLookupTransform transform = new XmlLookupTransform();
+            transform.FileName = @"..\..\TestData\OUMappings.xml";
+            transform.XPathQuery = "OUMappings/OUMapping[@sapOUNumber=\"{attributeValue}\"]/@MDSDisplayName";
+            transform.OnMissingMatch = OnMissingMatch.UseNull;
+            transform.UserDefinedReturnType = ExtendedAttributeType.String;
+            this.ExecuteTestString(transform, "12345'6789", "SingleQuote");
+        }
+
+        [TestMethod()]
+        public void XmlLookupTransformStringElementWithAposElementTest()
+        {
+            XmlLookupTransform transform = new XmlLookupTransform();
+            transform.FileName = @"..\..\TestData\OUMappings.xml";
+            transform.XPathQuery = "OUMappings/OUMapping[@sapOUNumber=\"{attributeValue}\"]/@MDSDisplayName";
+            transform.OnMissingMatch = OnMissingMatch.UseNull;
+            transform.UserDefinedReturnType = ExtendedAttributeType.String;
+            this.ExecuteTestString(transform, "123456'789", "Apos");
+        }
+
+        [TestMethod()]
+        public void XmlLookupTransformStringElementWithQuoteTest()
+        {
+            XmlLookupTransform transform = new XmlLookupTransform();
+            transform.FileName = @"..\..\TestData\OUMappings.xml";
+            transform.XPathQuery = "OUMappings/OUMapping[@sapOUNumber='{attributeValue}']/@MDSDisplayName";
+            transform.OnMissingMatch = OnMissingMatch.UseNull;
+            transform.UserDefinedReturnType = ExtendedAttributeType.String;
+            this.ExecuteTestString(transform, "123456\"789", "DoubleQuote");
+        }
+
+        [TestMethod()]
         public void XmlLookupTransformStringUseNull()
         {
             XmlLookupTransform transform = new XmlLookupTransform();
