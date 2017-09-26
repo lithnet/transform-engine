@@ -100,6 +100,8 @@ namespace Lithnet.Transforms.Presentation
                     this.allowedValueOperators.Add(new EnumExtension.EnumMember() { Description = ValueOperator.Largest.GetEnumDescription(), Value = ValueOperator.Largest });
                     this.allowedValueOperators.Add(new EnumExtension.EnumMember() { Description = ValueOperator.First.GetEnumDescription(), Value = ValueOperator.First });
                     this.allowedValueOperators.Add(new EnumExtension.EnumMember() { Description = ValueOperator.Last.GetEnumDescription(), Value = ValueOperator.Last });
+                    this.allowedValueOperators.Add(new EnumExtension.EnumMember() { Description = ValueOperator.RegexMatch.GetEnumDescription(), Value = ValueOperator.RegexMatch });
+                    this.allowedValueOperators.Add(new EnumExtension.EnumMember() { Description = ValueOperator.RegexNotMatch.GetEnumDescription(), Value = ValueOperator.RegexNotMatch });
                 }
 
                 List<EnumExtension.EnumMember> workingList = new List<EnumExtension.EnumMember>();
