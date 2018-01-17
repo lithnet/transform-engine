@@ -16,6 +16,8 @@
     {
         private XPathNavigator nav;
 
+        private string filename;
+
         private XPathNavigator Navigator
         {
             get
@@ -78,7 +80,17 @@
         /// Gets or sets the path of the XML file
         /// </summary>
         [DataMember(Name = "filename")]
-        public string FileName { get; set; }
+        public string FileName {
+            get
+            {
+                return this.filename;
+            }
+            set
+            {
+                this.filename = value;
+                this.nav = null;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the XPathQuery to use

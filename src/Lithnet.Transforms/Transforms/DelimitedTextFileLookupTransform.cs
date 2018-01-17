@@ -14,6 +14,8 @@
     [System.ComponentModel.Description("Delimited text file lookup")]
     public class DelimitedTextFileLookupTransform : Transform
     {
+        private string fileName;
+
         /// <summary>
         /// A static regular expression used to parse CSV files
         /// </summary>
@@ -80,7 +82,19 @@
         /// Gets or sets the path to the delimited test file
         /// </summary>
         [DataMember(Name = "filename")]
-        public string FileName { get; set; }
+        public string FileName
+        {
+            get
+            {
+                return this.fileName;
+            }
+            set
+            {
+                this.fileName = value;
+                this.cachedLines = null;
+                this.hasCachedFile = false;
+            }
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether the text file has a header row

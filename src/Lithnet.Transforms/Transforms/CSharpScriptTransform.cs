@@ -22,6 +22,8 @@
     {
         private MethodInfo method;
 
+        private string scriptText;
+
         /// <summary>
         /// Initializes a new instance of the PowerShellScriptTransform class
         /// </summary>
@@ -83,7 +85,18 @@
         }
 
         [DataMember(Name = "script-text")]
-        public string ScriptText { get; set; }
+        public string ScriptText
+        {
+            get
+            {
+                return this.scriptText;
+            }
+            set
+            {
+                this.scriptText = value;
+                this.method = null;
+            }
+        }
 
         /// <summary>
         /// Executes the transformation against the specified value
@@ -119,7 +132,7 @@
                     {
                         this.RemoveError("ScriptText");
                     }
-
+                   
                     break;
 
                 default:
@@ -130,7 +143,7 @@
         /// <summary>
         /// Performs the regular expression match and replacement
         /// </summary>
-        /// <param name="value">The incoming value to transform</param>
+        /// <param name="inputValues">The incoming values to transform</param>
         /// <returns>The transformed value</returns>
         private IList<object> Execute(IList<object> inputValues)
         {

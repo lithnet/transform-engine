@@ -19,6 +19,8 @@
     {
         private string scriptText;
 
+        private string scriptPath;
+
         private PowerShell ps;
 
         /// <summary>
@@ -87,7 +89,19 @@
         /// Gets or sets the path to the script
         /// </summary>
         [DataMember(Name = "script-path")]
-        public string ScriptPath { get; set; }
+        public string ScriptPath
+        {
+            get
+            {
+                return this.scriptPath;
+            }
+            set
+            {
+                this.scriptPath = value;
+                this.scriptText = null;
+                this.ps = null;
+            }
+        }
 
         private string ScriptText
         {
