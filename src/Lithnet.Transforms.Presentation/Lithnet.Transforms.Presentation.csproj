@@ -92,6 +92,7 @@
     <Compile Include="TransformTypeMarkupExtension.cs" />
     <Compile Include="ViewModels\ADGroupTypeToStringTransformViewModel.cs" />
     <Compile Include="ViewModels\EncodeStringTransformViewModel.cs" />
+    <Compile Include="ViewModels\BinaryGuidTransformViewModel.cs" />
     <Compile Include="ViewModels\NumberCalculationTransform.cs" />
     <Compile Include="ViewModels\ConditionalStringFlowTransformViewModel.cs" />
     <Compile Include="ViewModels\CSharpScriptTransformViewModel.cs" />
@@ -129,6 +130,9 @@
     <Compile Include="ViewModels\SimpleLookupTransformViewModel.cs" />
     <Compile Include="ViewModels\XPathQueryTransformViewModel.cs" />
     <Compile Include="ViewModels\XmlLookupTransformViewModel.cs" />
+    <Compile Include="Views\FormatNumberTransformView - Copy.cs">
+      <DependentUpon>BinaryGuidTransformView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormatStringTransformView.xaml.cs">
       <DependentUpon>FormatStringTransformView.xaml</DependentUpon>
     </Compile>
@@ -142,6 +146,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CSharpScriptTransformView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BinaryGuidTransformView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

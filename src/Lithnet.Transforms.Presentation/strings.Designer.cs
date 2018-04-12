@@ -19,7 +19,7 @@ namespace Lithnet.Transforms.Presentation {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class strings {
@@ -75,6 +75,15 @@ namespace Lithnet.Transforms.Presentation {
         internal static string ADGroupTypeToStringTransformDescription {
             get {
                 return ResourceManager.GetString("ADGroupTypeToStringTransformDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This transform converts binary GUID values to strings and vice-versa.
+        /// </summary>
+        internal static string BinaryGuidTransformDescription {
+            get {
+                return ResourceManager.GetString("BinaryGuidTransformDescription", resourceCulture);
             }
         }
         

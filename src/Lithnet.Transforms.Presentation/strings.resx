@@ -270,4 +270,7 @@ The transform supports looking up string, integer, and binary values. Binary val
   <data name="StringReplaceTransformDescription" xml:space="preserve">
     <value>This transform allows for the replacement of character sets within a string</value>
   </data>
+  <data name="BinaryGuidTransformDescription" xml:space="preserve">
+    <value>This transform converts binary GUID values to strings and vice-versa</value>
+  </data>
 </root>

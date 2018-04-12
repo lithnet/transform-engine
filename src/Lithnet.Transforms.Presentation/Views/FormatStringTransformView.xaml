@@ -41,8 +41,8 @@
                            Grid.Row="2"
                            Grid.Column="1"
                            TextWrapping="Wrap">Specify any string, using placeholders for the incoming attributes. Placeholders are numbers representing the incoming attribute, surrounded in braces '{}', starting from the zero. 
-                                If the multivalued attribute behvior is set to 'Individual' then only a single placeholder of {0} is allowed. 
-                                If the multivalued attribute behviour is set to 'grouped', then the first attribute will be {0}, the second {1}, and so on. 
+                                If the multivalued attribute behavior is set to 'Individual' then only a single placeholder of {0} is allowed. 
+                                If the multivalued attribute behavior is set to 'grouped', then the first attribute will be {0}, the second {1}, and so on. 
                                 Note that the number of placeholders must match the number of incoming attribute values exactly.
                 </TextBlock>
             </Grid>
