@@ -22,22 +22,43 @@ namespace Lithnet.Transforms
         /// <summary>
         /// Escapes XML element
         /// </summary>
-        [Description("XML element")]
+        [Description("Escape XML element")]
         [EnumMember(Value = "xml-element")]
         XmlElement = 0,
         
         /// <summary>
         /// Escape DN components
         /// </summary>
-        [Description("LDAP DN component")]
+        [Description("Escape LDAP DN component")]
         [EnumMember(Value = "ldap-dn")]
         LdapDN = 1,
 
         /// <summary>
-        /// Escapes XML element
+        /// Escapes XML attribute
         /// </summary>
-        [Description("XML attribute")]
+        [Description("Escape XML attribute")]
         [EnumMember(Value = "xml-attribute")]
         XmlAttribute = 2,
+
+        /// <summary>
+        /// Escapes XML element
+        /// </summary>
+        [Description("Unescape XML")]
+        [EnumMember(Value = "unescape-xml-element")]
+        XmlUnescape = 3,
+
+        /// <summary>
+        /// Escapes XML element
+        /// </summary>
+        [Description("Escape HTML element")]
+        [EnumMember(Value = "escape-html-element")]
+        HtmlEscape = 5,
+
+        /// <summary>
+        /// Escapes XML element
+        /// </summary>
+        [Description("Unescape HTML element")]
+        [EnumMember(Value = "unescape-html-element")]
+        HtmlUnescape = 6,
     }
 }

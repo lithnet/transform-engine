@@ -130,7 +130,7 @@
     <Compile Include="ViewModels\SimpleLookupTransformViewModel.cs" />
     <Compile Include="ViewModels\XPathQueryTransformViewModel.cs" />
     <Compile Include="ViewModels\XmlLookupTransformViewModel.cs" />
-    <Compile Include="Views\FormatNumberTransformView - Copy.cs">
+    <Compile Include="Views\BinaryGuidTransformView.cs">
       <DependentUpon>BinaryGuidTransformView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\FormatStringTransformView.xaml.cs">
@@ -366,7 +366,9 @@
   <PropertyGroup>
     <PostBuildEvent>"C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe" sign /sha1 "$(CSCERTTHUMBPRINT)" /t http://timestamp.digicert.com /fd sha256 /v "$(TargetFileName)"
 
-d:\NuGet\NuGet.exe pack $(ProjectPath) -OutputDirectory D:\nuget\packages</PostBuildEvent>
+"C:\Program Files\Debugging Tools for Windows (x64)\symstore" add /f "$(TargetDir)*.pdb" /s \\localhost\symbols /t "$(ProjectName)" /v "@(VersionNumber)"
+
+d:\dev\nuget\NuGet.exe pack $(ProjectPath) -Exclude **\*.xml -OutputDirectory D:\dev\nuget\packages</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.29.4\build\dotnet\Fody.targets" Condition="Exists('..\packages\Fody.1.29.4\build\dotnet\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

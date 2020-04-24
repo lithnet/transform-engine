@@ -9,7 +9,7 @@
     /// Trims whitespace from a string
     /// </summary>
     [DataContract(Name = "trim-string", Namespace = "http://lithnet.local/Lithnet.IdM.Transforms/v1/")]
-    [System.ComponentModel.Description("Trim string")]
+    [System.ComponentModel.Description("String trim whitespace")]
     public class TrimStringTransform : Transform
     {
         /// <summary>

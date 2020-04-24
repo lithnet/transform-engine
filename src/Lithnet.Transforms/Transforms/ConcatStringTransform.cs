@@ -11,7 +11,7 @@
     /// Concatenates several string together using a specified delimiter
     /// </summary>
     [DataContract(Name = "concat-string", Namespace = "http://lithnet.local/Lithnet.IdM.Transforms/v1/")]
-    [System.ComponentModel.Description("Concatenate string")]
+    [System.ComponentModel.Description("String concatenate")]
     [HandlesOwnMultivaluedInput]
     public class ConcatStringTransform : Transform
     {

@@ -89,11 +89,34 @@ namespace Lithnet.Transforms.UnitTests
         }
 
         [TestMethod()]
+        public void TestUnescapeXml()
+        {
+            StringEscapeTransform transform = new StringEscapeTransform();
+            transform.EscapeType = StringEscapeType.XmlUnescape;
+            this.ExecuteTest(transform, "Things &quot;stuff&quot; with &lt;this&gt; &amp; &apos;that&apos;", "Things \"stuff\" with <this> & 'that'");
+        }
+
+        [TestMethod()]
+        public void TestEscapeXml()
+        {
+            StringEscapeTransform transform = new StringEscapeTransform();
+            transform.EscapeType = StringEscapeType.XmlElement;
+            this.ExecuteTest(transform, "Things \"stuff\" with <this> & 'that'", "Things &quot;stuff&quot; with &lt;this&gt; &amp; &apos;that&apos;");
+        }
+
+        [TestMethod()]
         public void TestEscapeXmlLt()
         {
             StringEscapeTransform transform = new StringEscapeTransform();
             transform.EscapeType = StringEscapeType.XmlElement;
+            this.ExecuteTest(transform, "Things < stuff", "Things &lt; stuff");
+        }
 
+        [TestMethod()]
+        public void TestUnescapeXmlLt()
+        {
+            StringEscapeTransform transform = new StringEscapeTransform();
+            transform.EscapeType = StringEscapeType.XmlElement;
             this.ExecuteTest(transform, "Things < stuff", "Things &lt; stuff");
         }
 

@@ -11,7 +11,7 @@
     /// Splits a single value string into multiple values
     /// </summary>
     [DataContract(Name = "string-split", Namespace = "http://lithnet.local/Lithnet.IdM.Transforms/v1/")]
-    [System.ComponentModel.Description("String split transform")]
+    [System.ComponentModel.Description("String split")]
     public class StringSplitTransform : Transform
     {
         private string splitRegex;

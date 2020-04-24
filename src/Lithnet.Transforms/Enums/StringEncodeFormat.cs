@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="HashType.cs" company="Lithnet.
-// Copyright (c) 2013 Ryan Newington
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Lithnet.Transforms
+﻿namespace Lithnet.Transforms
 {
     using System;
     using System.Collections.Generic;

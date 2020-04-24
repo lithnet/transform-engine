@@ -10,7 +10,7 @@
     /// Substitutes values into a string
     /// </summary>
     [DataContract(Name = "format-string", Namespace = "http://lithnet.local/Lithnet.IdM.Transforms/v1/")]
-    [System.ComponentModel.Description("Format string")]
+    [System.ComponentModel.Description("String format")]
     [HandlesOwnMultivaluedInput]
     public class FormatStringTransform : Transform
     {

@@ -1,4 +1,6 @@
-﻿namespace Lithnet.Transforms
+﻿using System.Web;
+
+namespace Lithnet.Transforms
 {
     using System;
     using System.Collections.Generic;
@@ -11,7 +13,7 @@
     /// Escapes a string using the specified escaping rules
     /// </summary>
     [DataContract(Name = "string-escape", Namespace = "http://lithnet.local/Lithnet.IdM.Transforms/v1/")]
-    [System.ComponentModel.Description("Escape string")]
+    [System.ComponentModel.Description("String escape")]
     public class StringEscapeTransform : Transform
     {
         private static Dictionary<string, string> replacements = new Dictionary<string, string>()
@@ -90,19 +92,59 @@
                 case StringEscapeType.LdapDN:
                     return this.EscapeLdapDN(value);
 
+                case StringEscapeType.HtmlEscape:
+                    return this.EscapeHtml(value);
+
+                case StringEscapeType.HtmlUnescape:
+                    return this.UnescapeHtml(value);
+
+                case StringEscapeType.XmlUnescape:
+                    return this.UnescapeXml(value);
+
                 default:
                     throw new ArgumentException();
             }
         }
 
-        private string EscapeXmlElement(string value)
+        private string EscapeHtml(object value)
         {
-            return System.Security.SecurityElement.Escape(value);
+            string s = value as string;
+            return string.IsNullOrEmpty(s) ? s : System.Net.WebUtility.HtmlEncode(s);
+        }
+
+        private string UnescapeHtml(object value)
+        {
+            string s = value as string;
+            return string.IsNullOrEmpty(s) ? s : System.Net.WebUtility.HtmlDecode(s);
+        }
+
+        private string EscapeXmlElement(object value)
+        {
+            string s = value as string;
+
+            if (string.IsNullOrEmpty(s))
+            {
+                return s;
+            }
+
+            return s.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\"", "&quot;").Replace("'", "&apos;");
+        }
+
+        private string UnescapeXml(object value)
+        {
+            string s = value as string;
+
+            if (string.IsNullOrEmpty(s))
+            {
+                return s;
+            }
+
+            return s.Replace("&amp;", "&").Replace("&lt;", "<").Replace("&gt;", ">").Replace("&quot;", "\"").Replace("&apos;", "'");
         }
 
         private string EscapeXmlAttribute(string value)
         {
-            return System.Security.SecurityElement.Escape(value).Replace("&apos;", "'");
+            return this.EscapeXmlElement(value).Replace("&apos;", "'");
         }
 
         private string EscapeLdapDN(string s)

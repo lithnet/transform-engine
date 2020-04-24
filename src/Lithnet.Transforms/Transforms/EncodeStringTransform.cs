@@ -1,17 +1,16 @@
-﻿namespace Lithnet.Transforms
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Security.Cryptography;
-    using System.Text;
-    using Lithnet.MetadirectoryServices;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Text;
+using Lithnet.MetadirectoryServices;
 
+namespace Lithnet.Transforms
+{
     /// <summary>
     /// Encodes a value as a string
     /// </summary>
     [DataContract(Name = "encode-string", Namespace = "http://lithnet.local/Lithnet.IdM.Transforms/v1/")]
-    [System.ComponentModel.Description("Encode string")]
+    [System.ComponentModel.Description("String encode")]
     public class EncodeStringTransform : Transform
     {
         /// <summary>
@@ -71,7 +70,7 @@
         {
             switch (this.EncodeFormat)
             {
-                case  StringEncodeFormat.Base32:
+                case StringEncodeFormat.Base32:
                     return this.EncodeBase32(value);
 
                 case StringEncodeFormat.Base64:
@@ -90,17 +89,13 @@
         private string EncodeBase32(object value)
         {
             byte[] input = this.GetInputBytes(value, StringEncodeFormat.UTF8);
-            string result = Base32Encoding.ToString(input);
-
-            return result;
+            return Base32Encoding.ToString(input);
         }
 
         private string EncodeBase64(object value)
         {
             byte[] input = this.GetInputBytes(value, StringEncodeFormat.UTF8);
-            string result = Convert.ToBase64String(input);
-
-            return result;
+            return Convert.ToBase64String(input);
         }
 
         /// <summary>
@@ -115,14 +110,13 @@
                 return null;
             }
 
-            if (input is byte[])
+            if (input is byte[] bytes)
             {
-                return input as byte[];
+                return bytes;
             }
-            else if (input is string)
-            {
-                string inputString = input as string;
 
+            if (input is string inputString)
+            {
                 if (string.IsNullOrWhiteSpace(inputString))
                 {
                     return null;
@@ -145,27 +139,18 @@
                     case StringEncodeFormat.ASCII:
                         return Encoding.ASCII.GetBytes(inputString);
 
-                    case StringEncodeFormat.Base64:
-                    case StringEncodeFormat.Base32:
                     default:
                         throw new InvalidOperationException();
                 }
             }
-            else if (input is long || input is int)
+
+            if (input is long || input is int)
             {
                 long inputInt = (long)input;
-                if (inputInt == 0)
-                {
-                    return null;
-                }
+                return inputInt == 0 ? null : BitConverter.GetBytes(inputInt);
+            }
 
-                return BitConverter.GetBytes(inputInt);
-            }
-            else
-            {
-                throw new InvalidOperationException("The data type is unknown");
-            }
+            throw new InvalidOperationException("The data type is unknown");
         }
-
     }
 }
